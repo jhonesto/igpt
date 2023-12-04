@@ -94,6 +94,10 @@ Remember your [OpenAI API Key](https://platform.openai.com/account/api-keys) mus
 
 ![figura 007](https://raw.githubusercontent.com/jhonesto/files/main/images/iGPT/gpt007.png)
 
+## Tip
+
+If you don't like the colors or want to try new colors, you can change the INPUT_COLOR, OUTPUT_COLOR, INFO_COLOR and ERROR_COLOR parameters according to the ASCII table.
+
 ## Limitations
 
 This script runs in a text completion mode from OpenAI's API, and I'm working on it to use other endpoints.
