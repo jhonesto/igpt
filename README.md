@@ -90,6 +90,8 @@ You can choose an option from the list and follow the instructions in the termin
 
 ![figura 006](https://raw.githubusercontent.com/jhonesto/files/main/images/iGPT/gpt006.png)
 
+Remember your [OpenAI API Key](https://platform.openai.com/account/api-keys) must be valid.
+
 ![figura 007](https://raw.githubusercontent.com/jhonesto/files/main/images/iGPT/gpt007.png)
 
 ## Limitations
@@ -97,3 +99,6 @@ You can choose an option from the list and follow the instructions in the termin
 This script runs in a text completion mode from OpenAI's API, and I'm working on it to use other endpoints.
 
 This script runs on Linux. I haven't tested it on Windows, so I recommend using it with WSL.
+
+## Contributing
+If you notice any issues or want to contribute to the project, feel free to create an issue or a pull request on the Github repository. You can also reach me through my [website's contact form](https://www.joaohonesto.com.br). I appreciate all contributions and feedback!
