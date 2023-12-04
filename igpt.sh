@@ -402,6 +402,7 @@ do
 
 			if is_not_empty_or_null $ERROR; then
 				print_info "$ERROR"
+				
 			else
 				print_error "$LABEL_ERROR: $HTTP_STATUS - $OUTPUT"
 				exit_app $EXIT_ERROR

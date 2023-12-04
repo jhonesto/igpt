@@ -17,11 +17,15 @@ Just download this script and run in your terminal by typing
 
 `bash igpt.sh` 
 
+![figura 000](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt000.png)
+
 or make it executable and run it once
 
 `chmod +x igpt.sh` 
 
 and then just run `./igpt.sh`
+
+![figura 001](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt001.png)
 
 ## Usage
 
@@ -33,9 +37,17 @@ open your terminal or terminal emulator and run
 
 If your TOKEN is empty you must informing before using. 
 
-`TOKEN=INSERT-YOUR-TOKEN-HERE bash igpt.sh`
+![figura 002](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt002.png)
+
+or run the program passing the TOKEN value
+
+`TOKEN=YOUR-TOKEN-HERE bash igpt.sh`
+
+![figura 003](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt003.png)
 
 Now you can make prompts to OpenAI. Enjoy it!
+
+![figura 003a](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt003a.png)
 
 ### Default values
 
@@ -50,9 +62,12 @@ You can also start this program changing the default values:
 
 ```shell
 
-TOKEN=INSERT-YOUR-TOKEN-HERE MODEL=YOUR-MODEL TEMPERATURE=0.9 MAX_TOKENS=1000  bash igpt.sh
+TOKEN=TOKEN-HERE MODEL=YOUR-MODEL TEMPERATURE=0.9 MAX_TOKENS=1000  bash igpt.sh
 
 ```
+
+![figura 004](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt004.png)
+
 
 ### Interactive menu
 
@@ -69,7 +84,13 @@ Just type `?` to interact with the menu and you'll see these following options:
 
 What would you like to do? [1-6]
 
+![figura 005](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt005.png)
+
 You can choose an option from the list and follow the instructions in the terminal.
+
+![figura 006](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt006.png)
+
+![figura 007](https://raw.githubusercontent.com/jhonesto/file/main/images/iGPT/gpt007.png)
 
 ## Limitations
 
