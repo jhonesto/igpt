@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-
+#
+# Copyright (c) 2023 jhonesto
+# Licensed under the MIT License (2023). See LICENSE for details or
+# See <https://opensource.org/licenses/MIT> for details.
+#
 
 # DEFAULT VALUES
 TOKEN=${TOKEN:-""}
