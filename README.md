@@ -35,7 +35,7 @@ open your terminal or terminal emulator and run
 
 `bash igpt.sh`
 
-If your TOKEN is empty you must informing before using. 
+If your TOKEN **(OpenAI API Key)** is empty you must informing before using. 
 
 ![figura 002](https://raw.githubusercontent.com/jhonesto/files/main/images/iGPT/gpt002.png)
 
@@ -53,7 +53,7 @@ Now you can make prompts to OpenAI. Enjoy it!
 
 | FIELD | DESCRIPTION |
 | --- | --- |
-| TOKEN | Default is empty,  please provide a token before starting to prompt. |
+| TOKEN | **(OpenAI API Key)** Default is empty,  please provide a token before starting to prompt. |
 | MODEL | text-davinci-003 |
 | TEMPERATURE | 1.0 |
 | MAX_TOKENS | 500 |
