@@ -37,8 +37,10 @@ ENTER_YOUR_API_TOKEN="Please enter your api token: "
 YOUR_API_TOKEN_IS="Your api token is "
 
 YOUR_MODEL_IS="Your new model is"
+YOUR_CURRENT_MODEL_IS="Your current model is"
 INSERT_TEMPERATURE="Please enter a temperature: "
 YOUR_TEMPERATURE_IS="Your new temperature is:"
+YOUR_CURRENT_TEMPERATURE_IS="Your current temperature is:"
 TEMPERATURE_MUST_BE_BETWEEN_X_AND_Y="Temperature must be between 0 and 2."
 INSERT_MAX_TOKENS="Please enter your max tokens:"
 YOUR_MAXIMUM_TOKENS="Your max. tokens:"
@@ -53,6 +55,7 @@ YOUR_MAX_TOKENS_IS_EMPTY_OR_NULL="Your Max Tokens is empty or null."
 YOUR_TEMPERATURE_IS_EMPTY_OR_NULL="Your Temperature is empty or null."
 EXITING_APPLICATION="Exiting the application."
 INVALID_OPTION="Invalid option. Please try again."
+INVALID_MODEL="Invalid option. Returning to the main menu."
 MODEL_HEADER="Model"
 MAX_TOKENS_HEADER="Max Tokens"
 
@@ -90,8 +93,7 @@ MOD2="davinci-002"
 MOD3="gpt-3.5-turbo-instruct"
 MOD4="text-davinci-003"
 
-
-models=( "$MOD1" "$MOD2" "$MOD3" "$MOD4")
+models=( "$MOD1" "$MOD2" "$MOD3" "$MOD4" )
 declare -A arr_models=(
 	["$MOD1"]=16384
 	["$MOD2"]=16384
@@ -182,6 +184,8 @@ change_model () {
 change_temperature () {
 
 	local NEW_TEMP
+
+	print_info	"$YOUR_CURRENT_TEMPERATURE_IS $TEMPERATURE"
 
 	print_input "$INSERT_TEMPERATURE"
 	
@@ -277,7 +281,8 @@ do
     	break
     	;;
     *)
-    	print_info "$INVALID_OPTION"
+    	print_info "$INVALID_MODEL"
+    	break
     	;;
     esac
 done
@@ -295,6 +300,7 @@ for key in "${!arr_models[@]}"; do
 	print_model "$key" "${arr_models[$key]}"
 done
 
+print_info "$YOUR_CURRENT_MODEL_IS $MODEL"
 print_info
 
 show_models_menu
