@@ -27,6 +27,10 @@ and then just run `./igpt.sh`
 
 ![figura 001](https://raw.githubusercontent.com/jhonesto/files/main/images/iGPT/gpt001.png)
 
+## Docker Image
+
+You can download this image from [docker hub](https://hub.docker.com/r/jhonesto/igpt)
+
 ## Usage
 
 To get started, you need to have an [OpenAI API Key](https://platform.openai.com/account/api-keys)
