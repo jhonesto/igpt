@@ -394,7 +394,7 @@ do
 		
 		if [ "$HTTP_STATUS" = "200" ]; then
 		
-			TEXT=$( echo $OUTPUT | python -c "import sys, json; print(json.load(sys.stdin)['choices'][0]['text'].strip())" 2>/dev/null)
+			TEXT=$( echo "$OUTPUT" | python -c "import sys, json; print(json.load(sys.stdin)['choices'][0]['text'].strip())" 2>/dev/null)
 			print_output "$TEXT"
 			
 		elif [ "$HTTP_STATUS" = "000" ]; then
@@ -404,7 +404,7 @@ do
 			
 		else
 		
-			ERROR=$( echo $OUTPUT | python -c "import sys, json; print(json.load(sys.stdin)['error']['message'])" 2>/dev/null )
+			ERROR=$( echo "$OUTPUT" | python -c "import sys, json; print(json.load(sys.stdin)['error']['message'])" 2>/dev/null )
 
 			if is_not_empty_or_null $ERROR; then
 				print_info "$ERROR"
