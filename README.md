@@ -109,4 +109,4 @@ This script runs in a text completion mode from OpenAI's API, and I'm working on
 This script runs on Linux. I haven't tested it on Windows, so I recommend using it with WSL.
 
 ## Contributing
-If you notice any issues or want to contribute to the project, feel free to create an issue or a pull request on the Github repository. You can also reach me through my [website's contact form](https://www.joaohonesto.com.br). I appreciate all contributions and feedback!
+If you notice any issues or want to contribute to the project, feel free to create an issue or a pull request on the Github repository. I appreciate all contributions and feedback!
