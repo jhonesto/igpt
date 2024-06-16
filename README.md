@@ -60,7 +60,7 @@ Now you can make prompts to OpenAI. Enjoy it!
 | TOKEN | (OpenAI API Key) Default is empty,  please provide a token before starting to prompt. |
 | MODEL | gpt-3.5-turbo-instruct |
 | TEMPERATURE | 1.0 |
-| MAX_TOKENS | 500 |
+| MAX_TOKENS | 1000 |
 
 You can also start this program changing the default values:
 
