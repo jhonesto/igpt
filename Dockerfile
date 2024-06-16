@@ -13,7 +13,7 @@ ENV \
 	ERROR_COLOR="\033[31m" \
 	FORECOLOR="\033[0m"
 
-RUN apk add bash curl python3 && rm -rf /var/cache/apk/*
+RUN apk -U upgrade && apk add --no-cache bash curl python3 && rm -rf /var/cache/apk/*
 
 RUN adduser -D myuser  
 
