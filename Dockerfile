@@ -4,8 +4,8 @@ MAINTAINER João Honesto www.joaohonesto.com.br
 
 ENV \
 	TOKEN="" \
-	MODEL="text-davinci-003" \
-	MAX_TOKENS="500" \
+	MODEL="gpt-3.5-turbo-instruct" \
+	MAX_TOKENS="1000" \
 	TEMPERATURE="1.0" \
 	INPUT_COLOR="\033[36m" \
 	OUTPUT_COLOR="\033[33m" \

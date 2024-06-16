@@ -58,7 +58,7 @@ Now you can make prompts to OpenAI. Enjoy it!
 | FIELD | DESCRIPTION |
 | --- | --- |
 | TOKEN | (OpenAI API Key) Default is empty,  please provide a token before starting to prompt. |
-| MODEL | text-davinci-003 |
+| MODEL | gpt-3.5-turbo-instruct |
 | TEMPERATURE | 1.0 |
 | MAX_TOKENS | 500 |
 
