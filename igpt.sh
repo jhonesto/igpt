@@ -55,7 +55,9 @@ YOUR_MAX_TOKENS_IS_EMPTY_OR_NULL="Your Max Tokens is empty or null."
 YOUR_TEMPERATURE_IS_EMPTY_OR_NULL="Your Temperature is empty or null."
 EXITING_APPLICATION="Exiting the application."
 INVALID_OPTION="Invalid option. Please try again."
-INVALID_MODEL="Invalid option. Returning to the main menu."
+INVALID_MODEL="Invalid option. Return to main? (y|n)"
+CHOOSE_VALID_MODEL_INFO="Choose a valid model."
+RETURN_TO_MAIN_MENU="Returning to the main menu."
 MODEL_HEADER="Model"
 MAX_TOKENS_HEADER="Max Tokens"
 
@@ -84,10 +86,6 @@ OPT6=$OPT_QUIT
 
 options=("$OPT1" "$OPT2" "$OPT3" "$OPT4" "$OPT5" "$OPT6" )
 
-PS3="
-$MAIN_MENU_QUESTION [1-${#options[@]}] "
-
-
 MOD1="babbage-002"
 MOD2="davinci-002"
 MOD3="gpt-3.5-turbo-instruct"
@@ -101,10 +99,15 @@ declare -A arr_models=(
 	["$MOD4"]=4096
  )
 
+PS3_MAIN_MENU="
+$MAIN_MENU_QUESTION [1-${#options[@]}] "
+PS3_MODEL_MENU="
+$MODEL_MENU_QUESTION [1-${#arr_models[@]}] "
+
 #FUNCTIONS
 
 print_input () {
-	printf  "$INPUT_COLOR\n$1$FORECOLOR"
+	printf "$INPUT_COLOR\n$1$FORECOLOR"
 }
 
 print_output () {
@@ -116,7 +119,7 @@ print_error () {
 }
 
 print_info () {
-	printf  "$INFO_COLOR\n$1\n$FORECOLOR"
+	printf "$INFO_COLOR\n$1\n$FORECOLOR"
 }
 
 print_model () {
@@ -145,7 +148,7 @@ is_valid_number () {
 	return $FALSE
 }
 
-exit_app (){
+exit_app () {
 	print_info "$EXITING_APPLICATION\n"
 	exit $1
 }
@@ -258,9 +261,6 @@ check_parameters () {
 
 show_models_menu () {
 
-PS3="
-$MODEL_MENU_QUESTION [1-${#arr_models[@]}] "
-
 select opt in "${models[@]}"
 do
 	case $opt in
@@ -282,29 +282,49 @@ do
     	;;
     *)
     	print_info "$INVALID_MODEL"
-    	break
+    	read -re choice
+    	case $choice in
+    		[Yy]*)
+    			break
+    			;;
+    		[Nn]*)
+    			print_info "$CHOOSE_VALID_MODEL_INFO"
+    			;;
+    		*)
+    			break
+    			;;
+    	esac
     	;;
     esac
 done
-
-PS3="
-$MAIN_MENU_QUESTION [1-${#options[@]}] "
 	
 }
 
 show_models () {
 
-print_model "$MODEL_HEADER" "$MAX_TOKENS_HEADER"
+	print_model "$MODEL_HEADER" "$MAX_TOKENS_HEADER"
+	
+	for key in "${!arr_models[@]}"; do
+		print_model "$key" "${arr_models[$key]}"
+	done
+	
+}
 
-for key in "${!arr_models[@]}"; do
-	print_model "$key" "${arr_models[$key]}"
-done
+show_current_model () {
 
-print_info "$YOUR_CURRENT_MODEL_IS $MODEL"
-print_info
+	print_info "$YOUR_CURRENT_MODEL_IS $MODEL"
+	print_info
+}
 
-show_models_menu
+model_maintenance () {
 
+	show_models
+	show_current_model
+	set_ps3 "$PS3_MODEL_MENU"
+	show_models_menu
+	print_info "$RETURN_TO_MAIN_MENU"
+	set_ps3 "$PS3_MAIN_MENU"
+	
 }
 
 show_menu () {
@@ -319,7 +339,7 @@ do
 	    	insert_token
 	    	;;
 	    "$OPT3")
-	    	show_models
+	    	model_maintenance
 	    	;;
 	    "$OPT4")
 	    	change_temperature
@@ -338,8 +358,7 @@ done
 
 }
 
-
-show_figlet (){
+show_figlet () {
 echo "                                
 +-+-+-+-+-+-+-+-+-+-+-+
   _   __    ___  _____ 
@@ -352,7 +371,13 @@ echo "
 "
 }
 
+set_ps3 () {
+	PS3=$1
+}
+
 # STARTING THE APPLICATION
+
+set_ps3 "$PS3_MAIN_MENU"
 
 show_figlet
 
@@ -388,9 +413,9 @@ do
 		HTTP_STATUS=${OUTPUT: -3}
 		
 		OUTPUT=${OUTPUT::-3}
-
-		TEXT=""
-		ERROR=""
+		
+		TEXT=$EMPTY
+		ERROR=$EMPTY
 		
 		if [ "$HTTP_STATUS" = "200" ]; then
 		
@@ -405,7 +430,7 @@ do
 		else
 		
 			ERROR=$( echo "$OUTPUT" | python -c "import sys, json; print(json.load(sys.stdin)['error']['message'])" 2>/dev/null )
-
+			
 			if is_not_empty_or_null $ERROR; then
 				print_info "$ERROR"
 				
@@ -413,13 +438,11 @@ do
 				print_error "$LABEL_ERROR: $HTTP_STATUS - $OUTPUT"
 				exit_app $EXIT_ERROR
 			fi
-
-		fi
-
 		
+		fi
+	
 	else
 		print_info "\n$MENU_INFO"
 	fi
 	
 done
-
